@@ -12,7 +12,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 dir("environments/dev") {
-                    git branch: 'main', url: 'https://github.com/anitamaharana55/AWS-TERRAFORM.git'
+                    git branch: 'main', url: 'https://github.com/Sorabhss/AWS_TERRAFORM.git'
                 }
             }
         }
