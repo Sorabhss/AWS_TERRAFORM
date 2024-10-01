@@ -17,7 +17,7 @@ pipeline {
             }
         }
         
-        stage('Plan') {
+        stage('Init') {
             steps {
                 dir("environments/dev") {
                     sh 'ls -la'
