@@ -20,6 +20,7 @@ pipeline {
         stage('Plan') {
             steps {
                 dir("environments/dev") {
+                    sh 'ls -la'
                     sh 'terraform init -backend-config="enviroments/dev/backend.tf"'
                     sh 'terraform plan -out=tfplan'
                     sh 'terraform show -no-color tfplan > tfplan.txt'
