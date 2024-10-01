@@ -20,8 +20,8 @@ pipeline {
         stage('Init') {
             steps {
                 dir("environments/dev") {
-                    sh 'ls -la'
-                    sh 'terraform init'
+                    bat 'ls -la'
+                    bat 'terraform init'
                 }
             }
         }
@@ -29,8 +29,8 @@ pipeline {
         stage('Plan') {
             steps {
                 dir("environments/dev") {
-                    sh 'terraform plan -out=tfplan -var-file=terraform.tfvars'
-                    sh 'terraform show -no-color tfplan > tfplan.txt'
+                    bat 'terraform plan -out=tfplan -var-file=terraform.tfvars'
+                    bat 'terraform show -no-color tfplan > tfplan.txt'
                 }
             }
         }
@@ -53,7 +53,7 @@ pipeline {
         stage('Apply') {
             steps {
                 dir("environments/dev") {
-                    sh 'terraform apply -input=false tfplan'
+                    bat 'terraform apply -input=false tfplan'
                 }
             }
         }
