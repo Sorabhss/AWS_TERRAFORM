@@ -20,7 +20,6 @@ pipeline {
         stage('Init') {
             steps {
                 dir("environments/dev") {
-                    bat 'ls -la'
                     bat 'terraform init'
                 }
             }
